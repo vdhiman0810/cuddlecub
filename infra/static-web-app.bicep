@@ -14,15 +14,6 @@ resource staticWebApp 'Microsoft.Web/staticSites@2023-12-01' = {
     name: 'Free'
     tier: 'Free'
   }
-  properties: {
-    repositoryUrl: ''
-    branch: 'main'
-    buildProperties: {
-      appLocation: '/'
-      outputLocation: ''
-      skipGithubActionWorkflowGeneration: true
-    }
-  }
   tags: {
     app: 'cuddle-cub-day-care'
     environment: environment
