@@ -2,7 +2,7 @@
 param staticWebAppName string
 
 @description('Azure Static Web Apps region.')
-param location string = 'canadacentral'
+param location string = 'centralus'
 
 @description('Environment tag for the deployed resources.')
 param environment string = 'prod'

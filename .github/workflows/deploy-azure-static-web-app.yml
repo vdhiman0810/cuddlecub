@@ -11,8 +11,8 @@ permissions:
   contents: read
 
 env:
-  AZURE_RESOURCE_GROUP: cuddlecubdaycare-rg
-  AZURE_LOCATION: canadacentral
+  AZURE_RESOURCE_GROUP: cus-cuddlecubdaycare-rg
+  AZURE_LOCATION: centralus
   AZURE_STATIC_WEB_APP_NAME: cuddlecubdaycare
 
 jobs:

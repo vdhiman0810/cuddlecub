@@ -94,6 +94,16 @@ Then update these workflow values if needed:
 - `AZURE_LOCATION`
 - `AZURE_STATIC_WEB_APP_NAME`
 
+Current values:
+
+- `AZURE_RESOURCE_GROUP`: `cus-cuddlecubdaycare-rg`
+- `AZURE_LOCATION`: `centralus`
+- `AZURE_STATIC_WEB_APP_NAME`: `cuddlecubdaycare`
+
+Azure Static Web Apps is not available in every Azure region. This project uses
+`centralus`, which is one of the supported regions returned by Azure for
+`Microsoft.Web/staticSites`.
+
 The workflow uses the Azure Static Web Apps Free tier and runs on pushes to
 `main`. It can also be started manually from GitHub Actions.
 
