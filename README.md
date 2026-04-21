@@ -10,6 +10,7 @@ One-page static website for a home-based daycare, designed for Azure Storage sta
 - `assets/hero-daycare.png` - generated hero image
 - `assets/hero-video.mp4` - optional lightweight hero background video
 - `assets/cuddle-cub-logo.png` - circular logo used in the page header
+- `assets/rosy-dhiman.jpeg` - owner photo for the bio section
 - `api/send-enquiry` - optional Azure Function alternative, not required for the current setup
 
 ## Email setup
@@ -119,6 +120,7 @@ run the workflow manually with `deploy_infrastructure: true`.
    - `assets/hero-daycare.png`
    - `assets/hero-video.mp4` if you add a video
    - `assets/cuddle-cub-logo.png`
+   - `assets/rosy-dhiman.jpeg`
 4. Open the static website primary endpoint shown by Azure.
 5. Point `cuddlecubdaycare.ca` and `www.cuddlecubdaycare.ca` to the Azure static website endpoint.
 

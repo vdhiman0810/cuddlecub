@@ -75,6 +75,7 @@ jobs:
           cp index.html styles.css script.js dist/
           cp assets/cuddle-cub-logo.png dist/assets/
           cp assets/hero-daycare.png dist/assets/
+          cp assets/rosy-dhiman.jpeg dist/assets/
 
           if [ -f assets/hero-video.mp4 ]; then
             cp assets/hero-video.mp4 dist/assets/
