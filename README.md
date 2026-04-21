@@ -79,7 +79,7 @@ This repo includes one GitHub Actions workflow that creates the Azure Static Web
 App resource and uploads the website:
 
 - `.github/workflows/deploy-azure-static-web-app.yml`
-- `infra/static-web-app.bicep`
+- `.github/workflows/deploy-azure-static-web-app.yml`
 
 Before running it, create an Azure federated credential for GitHub Actions and
 add these GitHub repository secrets:
