@@ -12,7 +12,6 @@ permissions:
 
 env:
   AZURE_RESOURCE_GROUP: cus-cuddlecubdaycare-rg
-  AZURE_LOCATION: centralus
   AZURE_STATIC_WEB_APP_NAME: cuddlecubdaycare
 
 jobs:
@@ -30,32 +29,10 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Create resource group
-        run: |
-          az group create \
-            --name "$AZURE_RESOURCE_GROUP" \
-            --location "$AZURE_LOCATION"
-
-      - name: Create or update Azure Static Web App resource
-        run: |
-          az extension add --name staticwebapp --yes
-
-          if az staticwebapp show \
-            --name "$AZURE_STATIC_WEB_APP_NAME" \
-            --resource-group "$AZURE_RESOURCE_GROUP" \
-            --only-show-errors >/dev/null 2>&1; then
-            echo "Static Web App already exists."
-          else
-            az staticwebapp create \
-              --name "$AZURE_STATIC_WEB_APP_NAME" \
-              --resource-group "$AZURE_RESOURCE_GROUP" \
-              --location "$AZURE_LOCATION" \
-              --sku Free
-          fi
-
       - name: Get deployment token
         id: swa_token
         run: |
+          az extension add --name staticwebapp --yes
           TOKEN="$(az staticwebapp secrets list \
             --name "$AZURE_STATIC_WEB_APP_NAME" \
             --resource-group "$AZURE_RESOURCE_GROUP" \

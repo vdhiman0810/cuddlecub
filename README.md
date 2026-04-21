@@ -26,7 +26,7 @@ Current recipients:
 
 Allowed places to use/test the form:
 
-- The Azure Static Web Apps default URL printed by the GitHub Actions workflow
+- `https://orange-dune-09952c410.7.azurestaticapps.net`
 - `https://cuddlecubdaycare.ca`
 - `https://www.cuddlecubdaycare.ca`
 
@@ -91,24 +91,22 @@ add these GitHub repository secrets:
 Then update these workflow values if needed:
 
 - `AZURE_RESOURCE_GROUP`
-- `AZURE_LOCATION`
 - `AZURE_STATIC_WEB_APP_NAME`
 
 Current values:
 
 - `AZURE_RESOURCE_GROUP`: `cus-cuddlecubdaycare-rg`
-- `AZURE_LOCATION`: `centralus`
 - `AZURE_STATIC_WEB_APP_NAME`: `cuddlecubdaycare`
 
-Azure Static Web Apps is not available in every Azure region. This project uses
-`centralus`, which is one of the supported regions returned by Azure for
-`Microsoft.Web/staticSites`.
+The Static Web App has already been created. The workflow now updates website
+content only and runs on pushes to `main`. It can also be started manually from
+GitHub Actions.
 
-The workflow uses the Azure Static Web Apps Free tier and runs on pushes to
-`main`. It can also be started manually from GitHub Actions.
+The current Azure Static Web Apps URL is:
 
-After the first successful deployment, the final workflow step prints the
-default HTTPS URL for the site.
+```text
+https://orange-dune-09952c410.7.azurestaticapps.net
+```
 
 ### Custom Domain And HTTPS
 
