@@ -298,7 +298,7 @@ h2 {
 
 .owner-section {
   display: grid;
-  grid-template-columns: minmax(260px, 0.8fr) minmax(320px, 1.2fr);
+  grid-template-columns: minmax(220px, 0.62fr) minmax(320px, 1.38fr);
   gap: clamp(34px, 6vw, 76px);
   align-items: center;
 }
@@ -309,8 +309,8 @@ h2 {
 
 .owner-photo-wrap::before {
   position: absolute;
-  inset: 22px -18px -18px 22px;
-  border-radius: 8px;
+  inset: 16px -12px -12px 16px;
+  border-radius: 50%;
   background: var(--sky);
   content: "";
   z-index: -1;
@@ -318,10 +318,10 @@ h2 {
 
 .owner-photo {
   display: block;
-  width: 100%;
-  aspect-ratio: 4 / 5;
+  width: min(100%, 300px);
+  aspect-ratio: 1;
   border: 8px solid var(--white);
-  border-radius: 8px;
+  border-radius: 50%;
   object-fit: cover;
   object-position: center top;
   box-shadow: var(--shadow);
