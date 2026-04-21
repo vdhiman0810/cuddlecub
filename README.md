@@ -105,8 +105,8 @@ Manual run modes:
 - `deploy_infrastructure: true` creates/updates the resource group, storage
   account, static website setting, and website files.
 
-Pushes to `main` run the full infrastructure + content deployment so a fresh
-environment can be created from the repo.
+Pushes to `main` update website files only. To create or update Azure resources,
+run the workflow manually with `deploy_infrastructure: true`.
 
 ### Manual
 
