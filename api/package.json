@@ -1,0 +1,12 @@
+{
+  "name": "cuddlecub-enquiry-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "func start"
+  },
+  "dependencies": {
+    "@azure/communication-email": "^1.0.0"
+  },
+  "devDependencies": {}
+}

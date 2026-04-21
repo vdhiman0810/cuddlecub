@@ -1,0 +1,95 @@
+name: Deploy Static Website To Azure Storage
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AZURE_RESOURCE_GROUP: cuddlecubdaycare-rg
+  AZURE_LOCATION: canadacentral
+  AZURE_STORAGE_ACCOUNT: cuddlecubdaycareweb
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Create resource group
+        run: |
+          az group create \
+            --name "$AZURE_RESOURCE_GROUP" \
+            --location "$AZURE_LOCATION"
+
+      - name: Deploy storage account
+        run: |
+          az deployment group create \
+            --resource-group "$AZURE_RESOURCE_GROUP" \
+            --template-file infra/main.bicep \
+            --parameters storageAccountName="$AZURE_STORAGE_ACCOUNT" location="$AZURE_LOCATION"
+
+      - name: Enable static website hosting
+        run: |
+          ACCOUNT_KEY="$(az storage account keys list \
+            --resource-group "$AZURE_RESOURCE_GROUP" \
+            --account-name "$AZURE_STORAGE_ACCOUNT" \
+            --query '[0].value' \
+            --output tsv)"
+
+          az storage blob service-properties update \
+            --account-name "$AZURE_STORAGE_ACCOUNT" \
+            --account-key "$ACCOUNT_KEY" \
+            --static-website \
+            --index-document index.html \
+            --404-document index.html
+
+      - name: Prepare website files
+        run: |
+          rm -rf dist
+          mkdir -p dist/assets
+
+          cp index.html styles.css script.js dist/
+          cp assets/cuddle-cub-logo.png dist/assets/
+          cp assets/hero-daycare.png dist/assets/
+
+          if [ -f assets/hero-video.mp4 ]; then
+            cp assets/hero-video.mp4 dist/assets/
+          fi
+
+      - name: Upload website
+        run: |
+          ACCOUNT_KEY="$(az storage account keys list \
+            --resource-group "$AZURE_RESOURCE_GROUP" \
+            --account-name "$AZURE_STORAGE_ACCOUNT" \
+            --query '[0].value' \
+            --output tsv)"
+
+          az storage blob upload-batch \
+            --account-name "$AZURE_STORAGE_ACCOUNT" \
+            --account-key "$ACCOUNT_KEY" \
+            --destination '$web' \
+            --source dist \
+            --overwrite true
+
+      - name: Show website URL
+        run: |
+          az storage account show \
+            --resource-group "$AZURE_RESOURCE_GROUP" \
+            --name "$AZURE_STORAGE_ACCOUNT" \
+            --query "primaryEndpoints.web" \
+            --output tsv

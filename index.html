@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Cuddle Cub Day Care in Dundalk, Ontario offers warm, attentive care in a safe home environment. Send an enquiry for availability, fees, and childcare details."
+    />
+    <title>Cuddle Cub Day Care | Dundalk, Ontario</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Cuddle Cub Day Care home">
+        <span class="brand-mark">
+          <img src="assets/cuddle-cub-logo.png" alt="" />
+        </span>
+      </a>
+      <nav>
+        <a href="#care">Care</a>
+        <a href="#day">A Day Here</a>
+        <a href="#enquiry">Enquire</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Cuddle Cub Day Care introduction">
+        <video
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="assets/hero-daycare.png"
+          aria-hidden="true"
+        >
+          <source src="assets/hero-video.mp4" type="video/mp4" />
+        </video>
+        <img
+          class="hero-image"
+          src="assets/hero-daycare.png"
+          alt="A bright, tidy home daycare playroom with books, toys, and child-safe play areas."
+        />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Warm childcare in Dundalk, Ontario</p>
+          <h1>Cuddle Cub Day Care</h1>
+          <p class="hero-copy">
+            A calm, caring space for little ones to learn, play, rest, and feel
+            at home every day.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#enquiry">Send enquiry</a>
+            <a class="button secondary" href="#care">Explore care</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Daycare highlights">
+        <article>
+          <strong>Small group care</strong>
+          <p>Gentle attention, predictable routines, and room for every child to be known.</p>
+        </article>
+        <article>
+          <strong>Home comfort</strong>
+          <p>A tidy, nurturing environment built for safety, rest, meals, and play.</p>
+        </article>
+        <article>
+          <strong>Parent connection</strong>
+          <p>Clear updates and thoughtful communication so families feel included.</p>
+        </article>
+      </section>
+
+      <section class="section split" id="care">
+        <div>
+          <img
+            class="section-logo"
+            src="assets/cuddle-cub-logo.png"
+            alt="Cuddle Cub Day Care logo"
+          />
+          <p class="eyebrow">Care Philosophy</p>
+          <h2>Steady routines, kind guidance, and play with purpose.</h2>
+        </div>
+        <div class="copy-block">
+          <p>
+            Cuddle Cub Day Care is designed for families in Dundalk, Ontario who want the warmth of home care
+            with the polish of a dependable daily rhythm. Children are supported
+            through age-appropriate activities, outdoor time when possible,
+            nourishing breaks, quiet rest, and plenty of imaginative play.
+          </p>
+          <div class="feature-grid">
+            <div>
+              <strong>Safe setup</strong>
+              <span>Child-friendly spaces, tidy materials, and calm transitions.</span>
+            </div>
+            <div>
+              <strong>Learning moments</strong>
+              <span>Stories, songs, sensory play, art, early counting, and language.</span>
+            </div>
+            <div>
+              <strong>Flexible needs</strong>
+              <span>Tell us your child's schedule, comfort items, allergies, and routines.</span>
+            </div>
+            <div>
+              <strong>Personal attention</strong>
+              <span>Care is kept warm, attentive, and responsive to each child's pace.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section day-band" id="day">
+        <div class="day-content">
+          <p class="eyebrow">A Day Here</p>
+          <h2>Familiar, flexible, and full of little wins.</h2>
+          <ul class="timeline" aria-label="Sample daycare routine">
+            <li><span>Morning</span>Welcomes, free play, books, songs, and table activities.</li>
+            <li><span>Midday</span>Meals, outdoor or movement play, creative activities, and rest.</li>
+            <li><span>Afternoon</span>Quiet play, snack, tidy-up routines, and family pickup.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section enquiry-section" id="enquiry">
+        <div class="enquiry-intro">
+          <p class="eyebrow">Enquiry Form</p>
+          <h2>Tell us what your family needs.</h2>
+          <p>
+            Share a few details and we will follow up about availability, timing,
+            rates, and childcare details.
+          </p>
+          <div class="contact-note">
+            <strong>Enquiry delivery</strong>
+            <span>Submissions are sent by email after the form address is confirmed once.</span>
+          </div>
+        </div>
+
+        <form class="enquiry-form" id="enquiryForm" novalidate>
+          <div class="form-row">
+            <label>
+              Parent name
+              <input name="parentName" autocomplete="name" required />
+            </label>
+            <label>
+              Email
+              <input
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="name@example.com"
+                aria-describedby="emailError"
+                required
+              />
+              <span class="field-error" id="emailError"></span>
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Phone
+              <input
+                name="phone"
+                type="tel"
+                autocomplete="tel"
+                inputmode="tel"
+                pattern="^(?:\+?1[\s.-]?)?(?:\(?[2-9][0-9]{2}\)?[\s.-]?)[2-9][0-9]{2}[\s.-]?[0-9]{4}$"
+                placeholder="519-555-1234"
+                aria-describedby="phoneError"
+                required
+              />
+              <span class="field-error" id="phoneError"></span>
+            </label>
+            <label>
+              Child age
+              <input name="childAge" placeholder="e.g. 18 months" required />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Desired start date
+              <input name="startDate" type="date" required />
+            </label>
+            <label>
+              Schedule needed
+              <select name="schedule" required>
+                <option value="">Select one</option>
+                <option>Full-time</option>
+                <option>Part-time</option>
+                <option>Before / after school</option>
+                <option>Flexible / not sure</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Message
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Tell us about your child, preferred days, allergies, or questions."
+              required
+            ></textarea>
+          </label>
+
+          <label class="consent">
+            <input name="consent" type="checkbox" required />
+            <span>I agree to be contacted about my daycare enquiry.</span>
+          </label>
+
+          <button class="button primary submit-button" type="submit">
+            <span>Send enquiry</span>
+          </button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Cuddle Cub Day Care</span>
+      <a href="#enquiry">Check availability</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
