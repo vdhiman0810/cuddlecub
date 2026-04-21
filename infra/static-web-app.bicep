@@ -1,8 +1,8 @@
 @description('Name of the Azure Static Web App resource.')
 param staticWebAppName string
 
-@description('Azure Static Web Apps region. East US 2 is broadly supported for Static Web Apps.')
-param location string = 'eastus2'
+@description('Azure Static Web Apps region.')
+param location string = 'canadacentral'
 
 @description('Environment tag for the deployed resources.')
 param environment string = 'prod'
