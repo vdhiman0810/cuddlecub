@@ -24,13 +24,13 @@ Current recipients:
 
 Allowed places to use/test the form:
 
-- `http://localhost:8000`
+- `https://cuddlecubdaycareweb.z9.web.core.windows.net`
 - `https://cuddlecubdaycare.ca`
 - `https://www.cuddlecubdaycare.ca`
 
 To activate:
 
-1. Publish the site to `https://cuddlecubdaycare.ca` or open it locally through `http://localhost:8000`.
+1. Publish the site to the Azure Storage static website endpoint or `https://cuddlecubdaycare.ca`.
 2. Submit one test enquiry.
 3. Open the activation email sent to `rosydhiman2@gmail.com`.
 4. Click the confirmation link.
@@ -39,8 +39,8 @@ After that, new enquiries will be emailed automatically. FormSubmit may also
 send the first test submission after confirmation.
 
 FormSubmit does not require domain configuration in this codebase. It will not
-work from a direct `file://` browser preview, but it should work from localhost
-through a web server and from the published domain after activation.
+work from a direct `file://` browser preview, but it should work from the Azure
+website endpoint and the published domain after activation.
 
 The form endpoint is configured in `script.js`:
 
@@ -97,6 +97,16 @@ characters, and contain only letters and numbers.
 
 The workflow runs on pushes to `main` and can also be started manually from
 GitHub Actions.
+
+Manual run modes:
+
+- `deploy_infrastructure: false` updates website files only. Use this after the
+  storage account already exists.
+- `deploy_infrastructure: true` creates/updates the resource group, storage
+  account, static website setting, and website files.
+
+Pushes to `main` run the full infrastructure + content deployment so a fresh
+environment can be created from the repo.
 
 ### Manual
 

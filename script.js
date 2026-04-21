@@ -101,7 +101,7 @@ async function readResponseMessage(response) {
 
 function getSubmissionErrorMessage(result) {
   if (result.message?.includes("web server")) {
-    return "Please test from http://localhost:8000 or the live site at https://cuddlecubdaycare.ca. FormSubmit does not accept file:// previews.";
+    return "Please test from the Azure website endpoint or https://cuddlecubdaycare.ca. FormSubmit does not accept file:// previews.";
   }
 
   if (result.message?.toLowerCase().includes("activation")) {

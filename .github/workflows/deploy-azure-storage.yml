@@ -5,6 +5,12 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      deploy_infrastructure:
+        description: Create/update the resource group and storage account
+        required: true
+        default: false
+        type: boolean
 
 permissions:
   id-token: write
@@ -31,12 +37,14 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Create resource group
+        if: github.event_name != 'workflow_dispatch' || inputs.deploy_infrastructure == true
         run: |
           az group create \
             --name "$AZURE_RESOURCE_GROUP" \
             --location "$AZURE_LOCATION"
 
       - name: Deploy storage account
+        if: github.event_name != 'workflow_dispatch' || inputs.deploy_infrastructure == true
         run: |
           az deployment group create \
             --resource-group "$AZURE_RESOURCE_GROUP" \
@@ -44,6 +52,7 @@ jobs:
             --parameters storageAccountName="$AZURE_STORAGE_ACCOUNT" location="$AZURE_LOCATION"
 
       - name: Enable static website hosting
+        if: github.event_name != 'workflow_dispatch' || inputs.deploy_infrastructure == true
         run: |
           ACCOUNT_KEY="$(az storage account keys list \
             --resource-group "$AZURE_RESOURCE_GROUP" \
